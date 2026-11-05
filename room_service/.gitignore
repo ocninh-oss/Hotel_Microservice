@@ -1,0 +1,22 @@
+# Java / Quarkus / Maven
+target/
+.mvn/
+.classpath
+.project
+.settings/
+
+# Python / Virtual Environment
+__pycache__/
+.venv/
+venv/
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+
+# IDE & OS
+.vscode/
+.idea/
+*.log
+.DS_Store
