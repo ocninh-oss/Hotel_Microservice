@@ -1,0 +1,8 @@
+# Python environments
+.venv/
+__pycache__/
+
+# Security & AI Vector DB
+.env
+*.pem
+chroma_db/

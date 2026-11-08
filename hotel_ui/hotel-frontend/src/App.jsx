@@ -14,12 +14,13 @@ import Admin from './pages/Admin';
 import News from './pages/News';
 import NewsDetail from './pages/NewsDetail';
 import Profile from './pages/Profile';
-
+import ChatWidget from "./components/layout/ChatWidget";
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
+          {/* ... các thẻ Route của bạn giữ nguyên ... */}
           <Route path="/" element={<Home />} />
           <Route path="/promotions" element={<Promotions />} />
           <Route path="/rooms" element={<Rooms />} />
@@ -35,9 +36,13 @@ function App() {
           <Route path="/news/:id" element={<NewsDetail />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
+        
+        {/* THÊM DÒNG NÀY: Đặt ngoài Routes nhưng trong div.App để nó hiện ở mọi trang */}
+        <ChatWidget />
+        
       </div>
     </Router>
   );
 }
 
-export default App;
+export default App; //[cite: 12]

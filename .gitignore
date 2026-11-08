@@ -1,0 +1,12 @@
+# Biến môi trường và API Key
+.env
+
+# Database vector và cache
+chroma_db/
+__pycache__/
+
+# Khóa bảo mật (nếu bạn có dùng cho JWT Auth)
+*.pem
+
+# Thư mục build của Java Quarkus
+*/target/

@@ -1,0 +1,10 @@
+# Môi trường ảo và bộ nhớ đệm Python
+.venv/
+__pycache__/
+
+# Cơ sở dữ liệu Vector cục bộ
+chroma_db/
+
+# Thông tin bảo mật và cấu hình
+.env
+*.pem

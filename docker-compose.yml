@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: ./API_gateway
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./API_gateway/.env
+    volumes:
+      - ./API_gateway/chroma_db:/app/chroma_db  # Giữ lại DB Vector bên ngoài để không bị mất khi reset container
+    depends_on:
+      - auth-service
+      - room-service
+      - booking-service
+
+  auth-service:
+    # (Giả định bạn đã có Dockerfile trong auth_service hoặc build ra file jar)
+    build: ./user_service
+    container_name: auth-service
+    ports:
+      - "8081:8081"
+
+  room-service:
+    build: ./room_service
+    container_name: room-service
+    ports:
+      - "8082:8082"
+
+  booking-service:
+    build: ./booking_service
+    container_name: booking-service
+    ports:
+      - "8083:8083"
+
+  # Frontend React (Tùy chọn, thường build ra folder dist rồi dùng Nginx để chạy)
+  frontend:
+    build: ./hotel_ui/hotel-frontend
+    container_name: hotel-frontend
+    ports:
+      - "5173:80"
+  
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: hotel_22
+    ports:
+      - "3309:3306"
